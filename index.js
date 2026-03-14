@@ -334,6 +334,32 @@ async function processMessage(phone, text, senderName) {
 // Express Routes
 // ---------------------------
 
+app.get('/privacy', (req, res) => {
+    res.send(`
+        <html>
+            <head>
+                <title>Privacy Policy - Siddhi Dairy</title>
+                <style>
+                    body { font-family: sans-serif; padding: 20px; line-height: 1.6; }
+                    h1 { color: #2c3e50; }
+                </style>
+            </head>
+            <body>
+                <h1>Privacy Policy for Siddhi Dairy WhatsApp Bot</h1>
+                <p>Welcome to Siddhi Dairy. This privacy policy explains how we handle your data.</p>
+                <h2>1. Data Collection</h2>
+                <p>We collect your phone number and name when you interact with our WhatsApp bot to process orders and subscriptions.</p>
+                <h2>2. Data Usage</h2>
+                <p>Your data is strictly used for order fulfillment, delivery notifications, and managing your subscriptions with Siddhi Dairy.</p>
+                <h2>3. Data Protection</h2>
+                <p>We do not share your personal information with third parties. Your data is securely stored within our database.</p>
+                <h2>4. Contact Us</h2>
+                <p>If you have any questions about this privacy policy, please contact Siddhi Dairy support.</p>
+            </body>
+        </html>
+    `);
+});
+
 app.get('/webhook', (req, res) => {
     const mode = req.query['hub.mode'];
     const token = req.query['hub.verify_token'];
